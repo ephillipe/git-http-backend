@@ -26,6 +26,8 @@ COPY nginx.conf /etc/nginx/nginx.conf
 # forward request and error logs to docker log collector
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
     && ln -sf /dev/stderr /var/log/nginx/error.log
+    
+RUN mkdir -p /www/empty/ 
 
 # launch fcgiwrap via spawn-fcgi; launch nginx in the foreground
 # so the container doesn't die on us; supposedly we should be
