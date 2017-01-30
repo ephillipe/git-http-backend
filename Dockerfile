@@ -19,6 +19,7 @@ RUN apk add --update nginx && \
     apk add --update git && \
     apk add --update fcgiwrap && \
     apk add --update spawn-fcgi && \
+    apk add --update gettext && \
     rm -rf /var/cache/apk/*
 
 COPY nginx.conf /etc/nginx/nginx.conf
