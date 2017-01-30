@@ -16,10 +16,13 @@ VOLUME ["/git"]
 # - spawn-fcgi, to launch fcgiwrap and to create the unix socket
 # - nginx, because it is our frontend
 RUN apk add --update nginx && \
-    apk add --update git && \
+    apk add --update git && \    
     apk add --update fcgiwrap && \
-    apk add --update spawn-fcgi && \
+    apk add --update spawn-fcgi && \    
     rm -rf /var/cache/apk/*
+    
+RUN apk add --update git-gitweb && \   
+    mkdir /etc/gitweb    
 
 COPY nginx.conf /etc/nginx/nginx.conf
 
