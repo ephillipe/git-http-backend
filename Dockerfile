@@ -28,4 +28,5 @@ COPY nginx.conf /etc/nginx/nginx.conf
 # using supervisord or something like that instead, but this
 # will do
 CMD spawn-fcgi -s /run/fcgi.sock /usr/bin/fcgiwrap && \
+    envsubst < /etc/nginx/nginx.conf > /etc/nginx/nginx.conf && \
     nginx -g "daemon off;"
